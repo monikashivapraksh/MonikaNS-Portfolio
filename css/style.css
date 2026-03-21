@@ -1,0 +1,582 @@
+/* 
+  ========================================
+  PROFESSIONAL PORTFOLIO STYLESHEET
+  ========================================
+  Author: [Your Name]
+  Version: 1.0
+  Description: Modern, responsive, and clean design using vanilla CSS3.
+*/
+
+/* 1. CSS Variables & Reset */
+:root {
+  --primary-color: #8b5cf6; /* Vibrant Violet */
+  --secondary-color: #6d28d9;
+  --accent-color: #c084fc;
+  --text-main: #1f2937;
+  --text-muted: #4b5563;
+  --bg-light: #f9fafb;
+  --bg-white: #ffffff;
+  --border-color: #e5e7eb;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+  
+  /* Section Backgrounds */
+  --bg-about: #fff7ed; /* Soft Peach */
+  --bg-skills: #f0fdf4; /* Soft Mint */
+  --bg-experience: #fdf2f8; /* Soft Pink */
+  --bg-certifications: #f0f9ff; /* Soft Blue */
+  --bg-contact: #fffbeb; /* Soft Yellow */
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --primary-color: #a78bfa; /* Lighter Violet */
+  --secondary-color: #8b5cf6;
+  --accent-color: #c084fc;
+  --text-main: #f3f4f6; /* Light Gray */
+  --text-muted: #9ca3af; /* Muted Gray */
+  --bg-light: #111827; /* Very Dark Blue/Gray */
+  --bg-white: #1f2937; /* Darker Gray */
+  --border-color: #374151;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  
+  /* Section Backgrounds for Dark Mode */
+  --bg-about: #1e1b16; 
+  --bg-skills: #141e17; 
+  --bg-experience: #1e161a; 
+  --bg-certifications: #161b1e; 
+  --bg-contact: #1e1e16; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-light);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  padding: 80px 20px;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* 2. Navigation Bar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-white);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-color);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* 3. Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  padding-top: 80px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 4. About Me */
+#about {
+  background-color: var(--bg-about);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.about-text h3 {
+  color: var(--primary-color);
+}
+
+.education-list {
+  margin-top: 1.5rem;
+}
+
+.education-item {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--primary-color);
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* 5. Skills */
+#skills {
+  background-color: var(--bg-skills) !important;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.skill-category {
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+
+.skill-category h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background: #f3f4f6;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* 6. Experience */
+#experience {
+  background-color: var(--bg-experience);
+}
+
+.experience-container {
+  display: flex;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.experience-card {
+  background: var(--bg-white);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.experience-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.experience-card .company {
+  color: var(--primary-color);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.experience-card .duration {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.experience-card p {
+  color: var(--text-muted);
+}
+
+/* 7. Certifications & Achievements */
+#certifications {
+  background-color: var(--bg-certifications) !important;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .issuer {
+  color: var(--primary-color);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.card .date {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* 8. Contact Section */
+#contact {
+  background-color: var(--bg-contact);
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info h3 {
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item i {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  background: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* 9. Scroll to Top */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+  border: none;
+}
+
+.scroll-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 10. Footer */
+footer {
+  background: #111827;
+  color: white;
+  padding: 3rem 20px;
+  text-align: center;
+}
+
+.footer-content p {
+  opacity: 0.7;
+  font-size: 0.875rem;
+}
+
+/* 11. Responsive Design */
+@media (max-width: 992px) {
+  .about-content,
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--bg-white);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    transition: 0.4s;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
